@@ -9,11 +9,11 @@ DevExpress WPF Controls
 
 Project model structure is:
 
-FamilyMember
+FamilyMember : 
 ID
 Name
 Age
 
-Task
+Task :
 ID
 Description
