@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AN_Family_Task_Management"
+        xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
         mc:Ignorable="d"
         Title="Agajan Nazarow Family Task Management Application" Height="450" Width="800">
     <Grid>
@@ -25,5 +26,14 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
+
+        <dxwui:HamburgerMenu Grid.Column="1" Grid.Row="1" Grid.RowSpan="6" Header="Menu">
+            <dxwui:HamburgerSubMenu Content="General">
+                <dxwui:HamburgerSubMenu.Items>
+                    <dxwui:HamburgerSubMenuNavigationButton x:Name="FamilyPersonSubMenu" Content="Family Person" SelectOnClick="False" Click="FamilyPersonSubMenu_Click" />
+                    <dxwui:HamburgerSubMenuNavigationButton x:Name="TaskSubMenu" Content="Task" SelectOnClick="False" Click="TaskSubMenu_Click"/>
+                </dxwui:HamburgerSubMenu.Items>
+            </dxwui:HamburgerSubMenu>
+        </dxwui:HamburgerMenu>
     </Grid>
 </Window>
