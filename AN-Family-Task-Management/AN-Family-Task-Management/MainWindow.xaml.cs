@@ -12,15 +12,14 @@ namespace AN_Family_Task_Management
             InitializeComponent();
         }
 
-        private void FamilyPersonSubMenu_Click(object sender, RoutedEventArgs e)
+        private void FamilyPersonStackPanel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             System.Windows.Forms.MessageBox.Show("Family Person Menu Clicked");
         }
 
-        private void TaskSubMenu_Click(object sender, RoutedEventArgs e)
+        private void TaskStackPanel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             System.Windows.Forms.MessageBox.Show("Task Menu Clicked");
-
         }
     }
 }

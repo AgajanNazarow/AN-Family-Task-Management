@@ -10,15 +10,21 @@
     <Border Padding="10">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="9*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="8*" />
             </Grid.ColumnDefinitions>
 
             <!-- Menu Area -->
-            <StackPanel Grid.Column="0" Margin="5">
-                <Button x:Name="btnFamilyPerson" Content="Family Person" Click="FamilyPersonSubMenu_Click" Margin="5"/>
-                <Button x:Name="btnTask" Content="Task" Click="TaskSubMenu_Click" Margin="5"/>
-            </StackPanel>
+            <TreeView Grid.Column="0" Margin="5" x:Name="MenuTreeView">
+                <StackPanel Margin="3" Orientation="Horizontal" MouseDown="FamilyPersonStackPanel_MouseDown">
+                    <Image Width="40" Source="Images\family-menu-icon.png" />
+                    <TextBlock Margin="3 0 0 0" VerticalAlignment="Center" Text="Family Person" />
+                </StackPanel>
+                <StackPanel Margin="3" Orientation="Horizontal"  MouseDown="TaskStackPanel_MouseDown">
+                    <Image Width="40" Source="Images\task-menu-icon.png" />
+                    <TextBlock Margin="3 0 0 0" VerticalAlignment="Center" Text="Task" />
+                </StackPanel>
+            </TreeView>
 
             <!-- DataGrid Area -->
             <DataGrid Grid.Column="1" Margin="5">
