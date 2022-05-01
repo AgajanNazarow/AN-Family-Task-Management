@@ -4,11 +4,13 @@ namespace AN_Family_Task_Management.MVVM.ViewModels
 {
     public class MainViewModel : ObservableObject
     {
-        public RelayCommand FamilyPersonViewCommand { get; set; }
-        public RelayCommand TaskViewCommand { get; set; }
+        public RelayCommand FamilyPersonListViewCommand { get; set; }
+        public RelayCommand TaskListViewCommand { get; set; }
+        public RelayCommand TaskAssignmentListViewCommand { get; set; }
 
-        public FamilyPersonViewModel FamilyPersonVM { get; set; }
-        public TaskViewModel TaskVM { get; set; }
+        public FamilyPersonListViewModel FamilyPersonListVM { get; set; }
+        public TaskListViewModel TaskListVM { get; set; }
+        public TaskAssignmentListViewModel TaskAssignmentListVM { get; set; }
 
         private object _currentView;
 
@@ -24,18 +26,25 @@ namespace AN_Family_Task_Management.MVVM.ViewModels
 
         public MainViewModel()
         {
-            FamilyPersonVM = new FamilyPersonViewModel();
-            TaskVM = new TaskViewModel();
-            CurrentView = FamilyPersonVM;
+            FamilyPersonListVM = new FamilyPersonListViewModel();
+            TaskListVM = new TaskListViewModel();
+            TaskAssignmentListVM = new TaskAssignmentListViewModel();
 
-            FamilyPersonViewCommand = new RelayCommand(a =>
+            CurrentView = FamilyPersonListVM;
+
+            FamilyPersonListViewCommand = new RelayCommand(a =>
             {
-                CurrentView = FamilyPersonVM;
+                CurrentView = FamilyPersonListVM;
             });
 
-            TaskViewCommand = new RelayCommand(a =>
+            TaskListViewCommand = new RelayCommand(a =>
             {
-                CurrentView = TaskVM;
+                CurrentView = TaskListVM;
+            });
+
+            TaskAssignmentListViewCommand = new RelayCommand(a =>
+            {
+                CurrentView = TaskAssignmentListVM;
             });
         }
     }

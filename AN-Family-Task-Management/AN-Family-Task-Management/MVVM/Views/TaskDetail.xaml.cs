@@ -1,13 +1,13 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
 
 namespace AN_Family_Task_Management.MVVM.Views
 {
     /// <summary>
-    /// Interaction logic for TaskList.xaml
+    /// Interaction logic for TaskDetail.xaml
     /// </summary>
-    public partial class TaskList : UserControl
+    public partial class TaskDetail : Window
     {
-        public TaskList()
+        public TaskDetail()
         {
             InitializeComponent();
         }

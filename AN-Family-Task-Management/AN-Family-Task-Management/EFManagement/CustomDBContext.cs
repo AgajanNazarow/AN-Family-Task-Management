@@ -11,5 +11,6 @@ namespace AN_Family_Task_Management.EFManagement
 
         public DbSet<FamilyPerson> FamilyPersons { get; set; }
         public DbSet<Task> Tasks { get; set; }
+        public DbSet<TaskAssignment> TaskAssignments { get; set; }
     }
 }

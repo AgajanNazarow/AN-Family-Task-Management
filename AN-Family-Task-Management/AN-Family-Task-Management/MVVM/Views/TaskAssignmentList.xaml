@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="AN_Family_Task_Management.MVVM.Views.TaskList"
+﻿<UserControl x:Class="AN_Family_Task_Management.MVVM.Views.TaskAssignmentList"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.DataContext>
-        <viewModel:TaskListViewModel/>
+        <viewModel:TaskAssignmentListViewModel/>
     </UserControl.DataContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -18,21 +18,22 @@
         <StackPanel Orientation="Horizontal" Grid.Row="0">
             <Button Content="New" 
                     Margin="5" 
-                    Command="{Binding NewTaskCommand}" />
+                    Command="{Binding NewTaskAssignmentCommand}" />
             <Button Content="Edit" 
                     Margin="5" 
-                    Command="{Binding EditSelectedTaskCommand}"/>
+                    Command="{Binding EditSelectedTaskAssignmentCommand}"/>
             <Button Content="Delete" 
                     Margin="5" 
-                    Command="{Binding DeleteSelectedTaskCommand}"/>
+                    Command="{Binding DeleteSelectedTaskAssignmentCommand}"/>
         </StackPanel>
-        <DataGrid x:Name="gridTaskList" Grid.Row="1" 
-                  ItemsSource="{Binding ListTask, Mode=OneWay}"
-                  SelectedItem="{Binding SelectedTask}" AutoGenerateColumns="False">
+        <DataGrid x:Name="gridTaskAssignmentList" Grid.Row="1" 
+                  ItemsSource="{Binding ListTaskAssignment, Mode=OneWay}"
+                  SelectedItem="{Binding SelectedTaskAssignment}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
-                <DataGridTextColumn Header="Description" Binding="{Binding Description}" />
+                <DataGridTextColumn Header="Task" Binding="{Binding Task.Description}" />
+                <DataGridTextColumn Header="FamilyPerson" Binding="{Binding FamilyPerson.Name}" />
             </DataGrid.Columns>
-        </DataGrid>
+        </DataGrid>            
     </Grid>
 </UserControl>

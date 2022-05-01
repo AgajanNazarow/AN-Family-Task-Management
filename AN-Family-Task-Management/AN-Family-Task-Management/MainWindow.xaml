@@ -2,8 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AN_Family_Task_Management"
-        xmlns:EFManagement="clr-namespace:AN_Family_Task_Management.EFManagement"  
+        xmlns:local="clr-namespace:AN_Family_Task_Management" 
         xmlns:viewModel="clr-namespace:AN_Family_Task_Management.MVVM.ViewModels"
         x:Class="AN_Family_Task_Management.MainWindow"
         mc:Ignorable="d"
@@ -33,11 +32,15 @@
                              Height="30"
                              Style="{StaticResource MenuButtonTheme}"
                              IsChecked="True" 
-                             Command="{Binding FamilyPersonViewCommand}"/>
+                             Command="{Binding FamilyPersonListViewCommand}"/>
                 <RadioButton Content="Task" 
                              Height="30"
                              Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding TaskViewCommand}" />
+                             Command="{Binding TaskListViewCommand}" />
+                <RadioButton Content="Task Assignment" 
+                             Height="30"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding TaskAssignmentListViewCommand}" />
             </StackPanel>
             
             <!-- General View Area With Actions, Actions Will be managed In each view -->
