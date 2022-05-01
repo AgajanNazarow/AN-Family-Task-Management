@@ -4,6 +4,7 @@ using AN_Family_Task_Management.MVVM.Models;
 using AN_Family_Task_Management.MVVM.Views;
 using System;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace AN_Family_Task_Management.MVVM.ViewModels
 {
@@ -30,6 +31,7 @@ namespace AN_Family_Task_Management.MVVM.ViewModels
                 try
                 {
                     CustomRepository.DeleteTask(SelectedTask);
+                    MessageBox.Show("Delete Process Completed");
                 }
                 catch (Exception ex)
                 {

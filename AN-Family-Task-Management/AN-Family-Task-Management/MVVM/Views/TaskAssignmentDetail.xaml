@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:AN_Family_Task_Management.MVVM.Views"
              xmlns:viewModel="clr-namespace:AN_Family_Task_Management.MVVM.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="400">
+             Title="TaskAssignmentDetail" Height="200" Width="400">
     <Window.DataContext>
         <viewModel:TaskAssignmentDetailViewModel />
     </Window.DataContext>
