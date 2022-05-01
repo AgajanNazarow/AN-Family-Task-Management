@@ -2,6 +2,7 @@
 using AN_Family_Task_Management.EFManagement;
 using AN_Family_Task_Management.MVVM.Models;
 using AN_Family_Task_Management.MVVM.Views;
+using System;
 using System.Collections.ObjectModel;
 
 namespace AN_Family_Task_Management.MVVM.ViewModels
@@ -26,28 +27,27 @@ namespace AN_Family_Task_Management.MVVM.ViewModels
 
             DeleteSelectedFamilyPersonCommand = new RelayCommand(o =>
             {
-                CustomRepository.DeleteFamilyPerson(SelectedFamilyPerson);
-                ListFamilyPerson = GetObservableCollection();
+                try
+                {
+                    CustomRepository.DeleteFamilyPerson(SelectedFamilyPerson);
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show(ex.Message);
+                }
             });
 
             NewFamilyPersonCommand = new RelayCommand(o =>
             {
                 FamilyPersonDetail familyPersonDetail = new FamilyPersonDetail();
                 familyPersonDetail.Show();
-                familyPersonDetail.Closed += FamilyPersonDetail_Closed;
             });
 
             EditSelectedFamilyPersonCommand = new RelayCommand(o =>
             {
                 FamilyPersonDetail familyPersonDetail = new FamilyPersonDetail();
                 familyPersonDetail.Show();
-                familyPersonDetail.Closed += FamilyPersonDetail_Closed;
             });
-        }
-
-        private void FamilyPersonDetail_Closed(object sender, System.EventArgs e)
-        {
-            ListFamilyPerson = GetObservableCollection();
         }
 
         private ObservableCollection<FamilyPerson> GetObservableCollection()

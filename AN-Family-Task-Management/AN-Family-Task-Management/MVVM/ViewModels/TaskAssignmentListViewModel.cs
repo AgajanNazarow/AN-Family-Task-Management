@@ -2,6 +2,7 @@
 using AN_Family_Task_Management.EFManagement;
 using AN_Family_Task_Management.MVVM.Models;
 using AN_Family_Task_Management.MVVM.Views;
+using System;
 using System.Collections.ObjectModel;
 
 namespace AN_Family_Task_Management.MVVM.ViewModels
@@ -26,28 +27,27 @@ namespace AN_Family_Task_Management.MVVM.ViewModels
 
             DeleteSelectedTaskAssignmentCommand = new RelayCommand(o =>
             {
-                CustomRepository.DeleteTaskAssignment(SelectedTaskAssignment);
-                ListTaskAssignment = GetObservableCollection();
+                try
+                {
+                    CustomRepository.DeleteTaskAssignment(SelectedTaskAssignment);
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show(ex.Message);
+                }
             });
 
             NewTaskAssignmentCommand = new RelayCommand(o =>
             {
                 TaskAssignmentDetail taskAssignmentDetail = new TaskAssignmentDetail();
                 taskAssignmentDetail.Show();
-                taskAssignmentDetail.Closed += TaskAssignmentDetail_Closed;
             });
 
             EditSelectedTaskAssignmentCommand = new RelayCommand(o =>
             {
                 TaskAssignmentDetail taskAssignmentDetail = new TaskAssignmentDetail();
                 taskAssignmentDetail.Show();
-                taskAssignmentDetail.Closed += TaskAssignmentDetail_Closed;
             });
-        }
-
-        private void TaskAssignmentDetail_Closed(object sender, System.EventArgs e)
-        {
-            ListTaskAssignment = GetObservableCollection();
         }
 
         private ObservableCollection<TaskAssignment> GetObservableCollection()

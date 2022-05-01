@@ -2,6 +2,7 @@
 using AN_Family_Task_Management.EFManagement;
 using AN_Family_Task_Management.MVVM.Models;
 using AN_Family_Task_Management.MVVM.Views;
+using System;
 using System.Collections.ObjectModel;
 
 namespace AN_Family_Task_Management.MVVM.ViewModels
@@ -26,28 +27,27 @@ namespace AN_Family_Task_Management.MVVM.ViewModels
 
             DeleteSelectedTaskCommand = new RelayCommand(o =>
             {
-                CustomRepository.DeleteTask(SelectedTask);
-                ListTask = GetObservableCollection();
+                try
+                {
+                    CustomRepository.DeleteTask(SelectedTask);
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show(ex.Message);
+                }
             });
 
             NewTaskCommand = new RelayCommand(o =>
             {
                 TaskDetail taskDetail = new TaskDetail();
                 taskDetail.Show();
-                taskDetail.Closed += TaskDetail_Closed;
             });
 
             EditSelectedTaskCommand = new RelayCommand(o =>
             {
                 TaskDetail taskDetail = new TaskDetail();
                 taskDetail.Show();
-                taskDetail.Closed += TaskDetail_Closed;
             });
-        }
-
-        private void TaskDetail_Closed(object sender, System.EventArgs e)
-        {
-            ListTask = GetObservableCollection();
         }
 
         private ObservableCollection<Task> GetObservableCollection()
