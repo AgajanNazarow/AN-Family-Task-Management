@@ -4,34 +4,49 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AN_Family_Task_Management"
         xmlns:EFManagement="clr-namespace:AN_Family_Task_Management.EFManagement"  
+        xmlns:viewModel="clr-namespace:AN_Family_Task_Management.MVVM.ViewModels"
         x:Class="AN_Family_Task_Management.MainWindow"
         mc:Ignorable="d"
-        Title="Agajan Nazarow Family Task Management Application" Height="450" Width="1000">
+        Title="Agajan Nazarow Family Task Management Application" 
+        Height="450" Width="1000">
+    <Window.DataContext>
+        <viewModel:MainViewModel />
+    </Window.DataContext>
     <Border Padding="10">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <!-- Menu Area -->
-            <TreeView Grid.Column="0" Margin="5" x:Name="MenuTreeView">
-                <StackPanel Margin="3" Orientation="Horizontal" MouseDown="FamilyPersonStackPanel_MouseDown">
-                    <Image Width="40" Source="Images\family-menu-icon.png" />
-                    <TextBlock Margin="3 0 0 0" VerticalAlignment="Center" Text="Family Person" />
-                </StackPanel>
-                <StackPanel Margin="3" Orientation="Horizontal"  MouseDown="TaskStackPanel_MouseDown">
-                    <Image Width="40" Source="Images\task-menu-icon.png" />
-                    <TextBlock Margin="3 0 0 0" VerticalAlignment="Center" Text="Task" />
-                </StackPanel>
-            </TreeView>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-            <!-- DataGrid Area -->
-            <DataGrid Grid.Column="1" Margin="5">
-                <DataGrid.DataContext>
-                    <EFManagement:CustomDBContext/>
-                </DataGrid.DataContext>
-            </DataGrid>
+            <!-- Application Logo -->
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Logo Here" FontSize="30"/>
+            
+            <!-- Menu Area -->
+            <StackPanel Grid.Column="0" Grid.Row="1">
+                <RadioButton Content="Family Person" 
+                             Height="30"
+                             Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="True" 
+                             Command="{Binding FamilyPersonViewCommand}"/>
+                <RadioButton Content="Task" 
+                             Height="30"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding TaskViewCommand}" />
+            </StackPanel>
+            
+            <!-- General View Area With Actions, Actions Will be managed In each view -->
+            <ContentControl Grid.Column="1" 
+                            Grid.Row="0" 
+                            Grid.RowSpan="2" 
+                            Margin="10 0 10 10"
+                            Content="{Binding CurrentView}"/>
+
         </Grid>
     </Border>
 </Window>

@@ -1,4 +1,4 @@
-﻿using AN_Family_Task_Management.Models;
+﻿using AN_Family_Task_Management.MVVM.Models;
 using System.Data.Entity;
 
 namespace AN_Family_Task_Management.EFManagement
