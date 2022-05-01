@@ -1,4 +1,4 @@
-﻿namespace AN_Family_Task_Management.Models
+﻿namespace AN_Family_Task_Management.MVVM.Models
 {
     public class Task
     {
