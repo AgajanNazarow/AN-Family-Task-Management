@@ -11,15 +11,5 @@ namespace AN_Family_Task_Management
         {
             InitializeComponent();
         }
-
-        private void FamilyPersonStackPanel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            System.Windows.Forms.MessageBox.Show("Family Person Menu Clicked");
-        }
-
-        private void TaskStackPanel_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            System.Windows.Forms.MessageBox.Show("Task Menu Clicked");
-        }
     }
 }

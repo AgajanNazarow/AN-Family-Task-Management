@@ -11,11 +11,11 @@
                 <ResourceDictionary Source="Theme/MenuButtonTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <DataTemplate DataType="{x:Type viewModel:FamilyPersonViewModel}">
+            <DataTemplate DataType="{x:Type viewModel:FamilyPersonListViewModel}">
                 <view:FamilyPersonList />
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewModel:TaskViewModel}">
+            <DataTemplate DataType="{x:Type viewModel:TaskListViewModel}">
                 <view:TaskList />
             </DataTemplate>
         </ResourceDictionary>

@@ -4,17 +4,30 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AN_Family_Task_Management.MVVM.Views"
+             xmlns:viewModel="clr-namespace:AN_Family_Task_Management.MVVM.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <viewModel:TaskListViewModel/>
+    </UserControl.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0">
-            <Button Content="New Task" Margin="5" />
-            <Button Content="Delete Task" Margin="5" />
+            <Button Content="New" 
+                    Margin="5" 
+                    Command="{Binding NewTaskCommand}" />
+            <Button Content="Edit" 
+                    Margin="5" 
+                    Command="{Binding EditSelectedTaskCommand}"/>
+            <Button Content="Delete" 
+                    Margin="5" 
+                    Command="{Binding DeleteSelectedTaskCommand}"/>
         </StackPanel>
-        <DataGrid Grid.Row="1" />
+        <DataGrid x:Name="gridTaskList" Grid.Row="1" 
+                  ItemsSource="{Binding ListTask, Mode=OneWay}"
+                  SelectedItem="{Binding SelectedTask}"/>
     </Grid>
 </UserControl>

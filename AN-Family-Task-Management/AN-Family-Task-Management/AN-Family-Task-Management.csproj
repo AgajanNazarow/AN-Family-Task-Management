@@ -88,7 +88,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\Views\FamilyPersonDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\Views\FamilyPersonList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\Views\TaskDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -104,11 +112,19 @@
   <ItemGroup>
     <Compile Include="MVVM\Models\FamilyPerson.cs" />
     <Compile Include="MVVM\Models\Task.cs" />
-    <Compile Include="MVVM\ViewModels\FamilyPersonViewModel.cs" />
+    <Compile Include="MVVM\ViewModels\FamilyPersonDetailViewModel.cs" />
+    <Compile Include="MVVM\ViewModels\FamilyPersonListViewModel.cs" />
     <Compile Include="MVVM\ViewModels\MainViewModel.cs" />
-    <Compile Include="MVVM\ViewModels\TaskViewModel.cs" />
+    <Compile Include="MVVM\ViewModels\TaskDetailViewModel.cs" />
+    <Compile Include="MVVM\ViewModels\TaskListViewModel.cs" />
+    <Compile Include="MVVM\Views\FamilyPersonDetail.xaml.cs">
+      <DependentUpon>FamilyPersonDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\Views\FamilyPersonList.xaml.cs">
       <DependentUpon>FamilyPersonList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Views\TaskDetail.xaml.cs">
+      <DependentUpon>TaskDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\Views\TaskList.xaml.cs">
       <DependentUpon>TaskList.xaml</DependentUpon>
